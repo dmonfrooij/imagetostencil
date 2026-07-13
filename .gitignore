@@ -1,0 +1,20 @@
+.github/
+.vscode/
+.idea/
+
+# Backup files
+*.bak
+*.swp
+*.tmp
+
+# Environment files
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
