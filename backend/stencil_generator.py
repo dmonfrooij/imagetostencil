@@ -138,7 +138,7 @@ class StencilGenerator:
         if not contours:
             logger.warning("No contours found. Creating default mesh.")
             # Create a simple box
-            return trimesh.creation.box(width=10, height=10, height=extrusion_height)
+            return trimesh.creation.box(width=10, height=10, depth=extrusion_height)
         
         meshes = []
         
@@ -170,7 +170,7 @@ class StencilGenerator:
         
         if not meshes:
             logger.warning("No valid meshes created. Creating default mesh.")
-            return trimesh.creation.box(width=10, height=10, height=extrusion_height)
+            return trimesh.creation.box(width=10, height=10, depth=extrusion_height)
         
         # Combine all meshes
         combined_mesh = trimesh.util.concatenate(meshes)
