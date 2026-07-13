@@ -64,7 +64,9 @@ def generate_stencil():
         processor = ImageProcessor(filepath)
         processed_image = processor.process(
             threshold=threshold,
-            apply_canny=True
+            apply_canny=False,
+            blur=True,
+            morphological_op='close'
         )
         
         # Generate stencil
@@ -121,9 +123,14 @@ def preview_stencil():
         filepath = os.path.join(UPLOAD_FOLDER, f"{file_id}_{filename}")
         file.save(filepath)
         
-        # Process image
+        # Process image - same as generate for consistency
         processor = ImageProcessor(filepath)
-        processed_image = processor.process(threshold=threshold)
+        processed_image = processor.process(
+            threshold=threshold,
+            apply_canny=False,
+            blur=True,
+            morphological_op='close'
+        )
         
         # Generate stencil
         generator = StencilGenerator(processed_image)
